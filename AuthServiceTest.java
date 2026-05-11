@@ -23,10 +23,18 @@ class AuthServiceTest {
     }
     //Test 3 - Reseteo de la contraseña
     @Test
-    void resetPasswordDebeSerExitosoParaUsuarioExistente() {
+    void resetPasswordCorrecto() {
         AuthService authService = new AuthService();
         boolean resultadoTest3 = authService.resetPassword("Admin");
         //Assert
         assertTrue(resultadoTest3, "El reset de contraseña funciona para un usuario existente");
+    }
+    //Test 4 - Reset de contraseña no funciona
+    @Test
+    void resetPasswordFallido() {
+        AuthService authService = new AuthService();
+        boolean resultado = authService.resetPassword("UsuaryRandom");
+        // Assert
+        assertFalse(resultado, "El reset de contraseña no funciona");
     }
 }
