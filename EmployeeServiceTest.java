@@ -13,4 +13,11 @@ class EmployeeServiceTest {
         //Assert
         assertTrue(existeBuscado, "Debería encontrar al empleado Charles en la lista");
     }
+    //Test 6 - COmprobacion de tamaño de lista de empleados
+    @Test
+    void getAllEmployeesDebeDevolverTresEmpleados() {
+        EmployeeService service = new EmployeeService();
+        int total = service.getAllEmployees().size();
+        assertEquals(3, total, "El sistema debería devolver exactamente 3 empleados y es correcto");
+    }
 }
